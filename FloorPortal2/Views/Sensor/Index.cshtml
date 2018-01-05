@@ -1,0 +1,42 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<FloorPortal2.Models.SensorTag>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>デバイスID</th>
+            <th>時間</th>
+            <th>温度</th>
+            <th>湿度</th>
+            <th>気圧</th>
+            <th>照度</th>
+            <th>バッテリー</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.EventProcessedTime</td>
+                <td>@item.temperature</td>
+                <td>@item.humidity</td>
+                <td>@item.pressure</td>
+                <td>@item.light</td>
+                <td>@item.battery</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    Page: @Model.PageNumber / @Model.PageCount
+</div>
+
+<div>
+    @Html.PagedListPager(Model, page => Url.Action("page" + page))
+</div>
