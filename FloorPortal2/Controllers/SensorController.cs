@@ -8,7 +8,6 @@ using PagedList;
 
 namespace FloorPortal2.Controllers
 {
-
     public class SensorController : Controller
     {       
         // GET: Sensor
